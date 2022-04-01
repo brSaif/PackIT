@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{48B56159
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PackIT.UnitTests", "tests\PackIT.UnitTests\PackIT.UnitTests.csproj", "{412C18E6-B0DF-4424-83D8-90470DA27FF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackIT.Api", "src\PackIT.Api\PackIT.Api.csproj", "{E7CAD832-9330-4444-9300-99F7D7474ACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{412C18E6-B0DF-4424-83D8-90470DA27FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{412C18E6-B0DF-4424-83D8-90470DA27FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{412C18E6-B0DF-4424-83D8-90470DA27FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7CAD832-9330-4444-9300-99F7D7474ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7CAD832-9330-4444-9300-99F7D7474ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7CAD832-9330-4444-9300-99F7D7474ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7CAD832-9330-4444-9300-99F7D7474ACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{DDA29967-19C9-4028-834B-715E9FDD5453} = {5229E42D-5541-45B0-8175-C1566DCC7EF8}
 		{8900918E-380C-48CF-870B-EE447B86E7CD} = {5229E42D-5541-45B0-8175-C1566DCC7EF8}
 		{412C18E6-B0DF-4424-83D8-90470DA27FF9} = {48B56159-AF00-40E8-A478-208C318A1BD4}
+		{E7CAD832-9330-4444-9300-99F7D7474ACE} = {66A0FE59-5D91-473F-AD87-011029A2C9BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC1B76A7-C105-436C-9A68-F15A55046B34}
