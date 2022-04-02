@@ -17,7 +17,7 @@ namespace PackIT.Domain.Entities
         private PackingListName _name;
         private Localization _localization;
 
-        private readonly LinkedList<PackingItem> _items;
+        private readonly LinkedList<PackingItem> _items = new();
 
         private PackingList()
         {
@@ -58,6 +58,17 @@ namespace PackIT.Domain.Entities
         {
             var item = GetItem(itemName);
             var packedItem = item with { IsPacked = true };
+
+            _items.Find(item).Value = packedItem;
+            AddEvent(new PackedItemPacked(this, item));
+        }
+
+        public void RemoveItem(string itemName)
+        {
+            var item = GetItem(itemName);
+
+            _items.Remove(item);
+            AddEvent(new PackedItemRemoved(this, item));
         }
 
         private PackingItem GetItem(string itemName)

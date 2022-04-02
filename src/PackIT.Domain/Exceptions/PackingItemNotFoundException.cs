@@ -9,9 +9,12 @@ namespace PackIT.Domain.Exceptions
 {
     public class PackingItemNotFoundException : PackITException
     {
-      
-        public PackingItemNotFoundException(string itemName) : base($"Packing item '{itemName}' not found")
+
+        public string ItemName { get; }
+
+        public PackingItemNotFoundException(string itemName) : base("Packing item 'itemName' not found")
         {
+            ItemName = itemName;
         }
     }
 }
