@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace PackIT.Domain.Exceptions
 {
-    public class EmptyPackingListIdException : PackITException
+    public class InvalidTemperatureException : PackITException
     {
-        public EmptyPackingListIdException() : base("Packing list ID cannot be empty")
+        public double Temp { get; set; }
+        public InvalidTemperatureException(double temp) : base($"Value '{temp}' is Invalid temperature")
         {
+            Temp = temp;
         }
     }
 }
