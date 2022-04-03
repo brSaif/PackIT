@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PackIT.Domain.Policies.Temperature
 {
-    public class HighTemperaturePolicy : IPackingItemPolicy
+    internal sealed class HighTemperaturePolicy : IPackingItemPolicy
     {
         public IEnumerable<PackingItem> GenerateItems(PolicyData data)
             => new List<PackingItem>
@@ -18,7 +18,7 @@ namespace PackIT.Domain.Policies.Temperature
                 };
 
         public bool IsApplicable(PolicyData data)
-            => data.Temperature > 25;
+            => data.Temperature > 25D;
 
 
     }
