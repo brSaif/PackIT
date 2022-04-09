@@ -13,7 +13,7 @@ namespace PackIT.Infrastructure.EF.Contexts
     {
         public DbSet<PackingListReadModel> packingLists { get; set; }
 
-        public ReadDbContext(DbContextOptions options) : base(options)
+        public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
         {
         }
 

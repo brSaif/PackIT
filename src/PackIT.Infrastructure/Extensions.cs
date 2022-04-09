@@ -19,8 +19,8 @@ namespace PackIT.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services,
                                                            IConfiguration config)
         {
-            services.AddPostgres(config);
             services.AddQueries();
+            services.AddPostgres(config);
             services.AddSingleton<IWeatherService, DumbWeatherService>();
 
             services.TryDecorate(typeof(ICommandHandler<>), typeof(LoggingCommandHandlerDecorator<>));
