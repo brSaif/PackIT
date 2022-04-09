@@ -38,7 +38,6 @@ namespace PackIT.Api.Controllers
             var results = await _queryDispatcher.QueryDispatcher(query);
             return OkOrNotFound(results);
         }
-
         #endregion
 
 
@@ -64,14 +63,14 @@ namespace PackIT.Api.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{PackingListId:guid}/items/{name}/pack")]
         public async Task<IActionResult> Delete([FromBody] RemovePackingItem command)
         {
             await _commandDispatcher.DispatchAsync(command);
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromBody] RemovePackingList command)
         {
             await _commandDispatcher.DispatchAsync(command);
