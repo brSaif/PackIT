@@ -20,7 +20,7 @@ namespace PackIT.Shared.Commands
             using var scope = _serviceProvider.CreateScope();
             var handler = scope.ServiceProvider.GetRequiredService<ICommandHandler<TCommand>>();
 
-            await handler.HandleAsync();
+            await handler.HandleAsync(command);
         }
     }
 }

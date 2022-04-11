@@ -12,14 +12,14 @@ using System.Threading.Tasks;
 
 namespace PackIT.Application.Commands.Handlers
 {
-    public class CreatingPackingListWithItemsHandler : ICommandHandler<CreatingPackingListWithItems>
+    public class CreatePackingListWithItemsHandler : ICommandHandler<CreatePackingListWithItems>
     {
         private readonly IPackingListReadService _readService;
         private readonly IPackingListFactory _factory;
         private readonly IPackingListRepository _repository;
         private readonly IWeatherService _weatherService;
 
-        public CreatingPackingListWithItemsHandler(IPackingListReadService readService,
+        public CreatePackingListWithItemsHandler(IPackingListReadService readService,
             IPackingListFactory factory, IPackingListRepository repository, IWeatherService weatherService)
         {
             _readService = readService;
@@ -28,7 +28,7 @@ namespace PackIT.Application.Commands.Handlers
             _weatherService = weatherService;
         }
 
-        public async Task HandleAsync(CreatingPackingListWithItems command)
+        public async Task HandleAsync(CreatePackingListWithItems command)
         {
             var (id, name, days, gender, localizationWriteModel) = command;
 

@@ -1,4 +1,5 @@
-﻿using PackIT.Domain.ValueObjects;
+﻿using PackIT.Application.DTO;
+using PackIT.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace PackIT.Application.Services
 {
     public interface IWeatherService
     {
-        Task<> GetWeatherAsync(Localization localization);
+        Task<WeatherDto> GetWeatherAsync(Localization localization);
     }
 }
