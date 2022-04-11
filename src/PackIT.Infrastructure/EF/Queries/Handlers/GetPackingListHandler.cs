@@ -17,7 +17,7 @@ namespace PackIT.Infrastructure.EF.Queries.Handlers
         private readonly DbSet<PackingListReadModel> _packingLists;
 
         public GetPackingListHandler(ReadDbContext context)
-            => _packingLists = context.packingLists;
+            => _packingLists = context.PackingLists;
 
         public Task<PackingListDto> HandleAsync(GetPackingList query)
             => _packingLists

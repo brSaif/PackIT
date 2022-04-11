@@ -8,6 +8,6 @@ namespace PackIT.Infrastructure.EF.Options
 {
     public class PostgresOptions
     {
-        public string ConnectionString { get; set; } = "PostgreSQL";
+        public string ConnectionString { get; set; } 
     }
 }

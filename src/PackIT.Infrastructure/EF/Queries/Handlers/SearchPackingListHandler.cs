@@ -17,7 +17,7 @@ namespace PackIT.Infrastructure.EF.Queries.Handlers
         private readonly DbSet<PackingListReadModel> _packingLists;
 
         public SearchPackingListHandler(ReadDbContext context)
-            => _packingLists = context.packingLists;
+            => _packingLists = context.PackingLists;
         public async Task<IEnumerable<PackingListDto>> HandleAsync(SearchPackingLists query)
         {
             var dbQuery = _packingLists

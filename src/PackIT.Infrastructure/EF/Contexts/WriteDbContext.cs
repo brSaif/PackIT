@@ -12,7 +12,7 @@ namespace PackIT.Infrastructure.EF.Contexts
 {
     internal sealed class WriteDbContext : DbContext
     {
-        public DbSet<PackingList> packingLists { get; set; }
+        public DbSet<PackingList> PackingLists { get; set; }
 
         public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
         {
@@ -20,7 +20,7 @@ namespace PackIT.Infrastructure.EF.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("Packing");
+            modelBuilder.HasDefaultSchema("packing");
 
             var config = new WriteConfiguration();
             modelBuilder.ApplyConfiguration<PackingList>(config);

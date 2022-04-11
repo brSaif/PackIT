@@ -28,14 +28,14 @@ namespace PackIT.Api.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<PackingListDto>> Get([FromRoute] GetPackingList query)
         {
-            var result = await _queryDispatcher.QueryDispatcher(query);
+            var result = await _queryDispatcher.QueryAsync(query);
             return OkOrNotFound(result);
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PackingListDto>>> Get([FromQuery] SearchPackingLists query)
         {
-            var results = await _queryDispatcher.QueryDispatcher(query);
+            var results = await _queryDispatcher.QueryAsync(query);
             return OkOrNotFound(results);
         }
         #endregion
@@ -43,27 +43,27 @@ namespace PackIT.Api.Controllers
 
         #region Commands
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreatingPackingListWithItems command)
+        public async Task<IActionResult> Post([FromBody] CreatePackingListWithItems command)
         {
             await _commandDispatcher.DispatchAsync(command);
             return CreatedAtAction(nameof(Get), new { id = command.Id }, null);
         }
 
-        [HttpPut("{PackingListId}/items")]
+        [HttpPut("{PackingListId}/item")]
         public async Task<IActionResult> Put([FromBody] AddPackingItem command)
         {
             await _commandDispatcher.DispatchAsync(command);
             return Ok();
         }
 
-        [HttpPut("{PackingListId:guid}/items/{name}/pack")]
+        [HttpPut("{PackingListId:guid}/item/{name}/pack")]
         public async Task<IActionResult> Put([FromBody] PackItem command)
         {
             await _commandDispatcher.DispatchAsync(command);
             return Ok();
         }
 
-        [HttpDelete("{PackingListId:guid}/items/{name}/pack")]
+        [HttpDelete("{PackingListId:guid}/item/{name}")]
         public async Task<IActionResult> Delete([FromBody] RemovePackingItem command)
         {
             await _commandDispatcher.DispatchAsync(command);

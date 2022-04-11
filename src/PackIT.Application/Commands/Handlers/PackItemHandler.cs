@@ -13,16 +13,19 @@ namespace PackIT.Application.Commands.Handlers
     {
         private readonly IPackingListRepository _repository;
 
+        public PackItemHandler(IPackingListRepository repository)
+        {
+            _repository = repository;
+        }
+
         public async Task HandleAsync(PackItem command)
         {
-            var (packingListId, name) = command;
-
-            var packingList = await _repository.GetAsync(packingListId);
+            var packingList = await _repository.GetAsync(command.PackingListId);
 
             if (packingList is null)
-                throw new PackingListNotFoundException(packingListId);
+                throw new PackingListNotFoundException(command.PackingListId);
 
-            packingList.PackItem(name);
+            packingList.PackItem(command.Name);
 
             await _repository.UpdateAsync(packingList);
         }

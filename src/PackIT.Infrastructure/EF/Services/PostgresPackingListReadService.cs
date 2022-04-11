@@ -10,9 +10,9 @@ namespace PackIT.Infrastructure.EF.Services
         private readonly DbSet<PackingListReadModel> _packingLists;
 
         public PostgresPackingListReadService(ReadDbContext readContext)
-           => _packingLists = readContext.packingLists;
+           => _packingLists = readContext.PackingLists;
 
         public async Task<bool> ExistsByNameAsync(string name)
-            => await _packingLists.AllAsync(pl => pl.Name == name);
+            => await _packingLists.AnyAsync(pl => pl.Name == name);
     }
 }

@@ -11,7 +11,7 @@ namespace PackIT.Infrastructure.EF.Contexts
 {
     internal sealed class ReadDbContext : DbContext
     {
-        public DbSet<PackingListReadModel> packingLists { get; set; }
+        public DbSet<PackingListReadModel> PackingLists { get; set; }
 
         public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
         {
@@ -19,7 +19,7 @@ namespace PackIT.Infrastructure.EF.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("Packing");
+            modelBuilder.HasDefaultSchema("packing");
 
             var config = new ReadConfigurations();
             modelBuilder.ApplyConfiguration<PackingItemReadModel>(config);

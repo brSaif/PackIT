@@ -42,7 +42,7 @@ namespace PackIT.Domain.Entities
         {
             var alreadyExists = _items.Any(i => i.Name == item.Name);
             if (alreadyExists)
-                throw new PackingListItemAlreadyExist(_name, item.Name);
+                throw new PackingListItemAlreadyExistException(_name, item.Name);
 
             _items.AddLast(item);
             AddEvent(new PackingItemAdded(this, item));

@@ -8,6 +8,6 @@ namespace PackIT.Shared.Abstraction.Queries
 {
     public interface IQueryDispatcher
     {
-        Task<TResult> QueryDispatcher<TResult>(IQuery<TResult> query);
+        Task<TResult> QueryAsync<TResult>(IQuery<TResult> query);
     }
 }

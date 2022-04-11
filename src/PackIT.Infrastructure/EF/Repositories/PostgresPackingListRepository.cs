@@ -19,7 +19,7 @@ namespace PackIT.Infrastructure.EF.Repositories
         public PostgresPackingListRepository(WriteDbContext context)
         {
             _writeContext = context;
-            _packingLists = context.packingLists;
+            _packingLists = context.PackingLists;
         }
 
         public async Task AddAsync(PackingList packingList)

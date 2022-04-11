@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PackIT.Infrastructure.EF.Migrations
 {
-    public partial class InitialRead : Migration
+    public partial class InitRead : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "Packing");
+                name: "packing");
 
             migrationBuilder.CreateTable(
                 name: "PackingLists",
-                schema: "Packing",
+                schema: "packing",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -29,7 +29,7 @@ namespace PackIT.Infrastructure.EF.Migrations
 
             migrationBuilder.CreateTable(
                 name: "PackingItems",
-                schema: "Packing",
+                schema: "packing",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -44,7 +44,7 @@ namespace PackIT.Infrastructure.EF.Migrations
                     table.ForeignKey(
                         name: "FK_PackingItems_PackingLists_PackingListId",
                         column: x => x.PackingListId,
-                        principalSchema: "Packing",
+                        principalSchema: "packing",
                         principalTable: "PackingLists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -52,7 +52,7 @@ namespace PackIT.Infrastructure.EF.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_PackingItems_PackingListId",
-                schema: "Packing",
+                schema: "packing",
                 table: "PackingItems",
                 column: "PackingListId");
         }
@@ -61,11 +61,11 @@ namespace PackIT.Infrastructure.EF.Migrations
         {
             migrationBuilder.DropTable(
                 name: "PackingItems",
-                schema: "Packing");
+                schema: "packing");
 
             migrationBuilder.DropTable(
                 name: "PackingLists",
-                schema: "Packing");
+                schema: "packing");
         }
     }
 }

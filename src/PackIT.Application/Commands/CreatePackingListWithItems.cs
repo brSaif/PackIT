@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PackIT.Application.Commands
 {
-    public record CreatingPackingListWithItems (Guid Id, string Name, ushort Days, Gender Gender,LocalisationWriteModel Localisation) : ICommand;
+    public record CreatePackingListWithItems (Guid Id, string Name, ushort Days, Gender Gender,LocalizationWriteModel Localisation) : ICommand;
 
-    public record LocalisationWriteModel (string City, string Country);
+    public record LocalizationWriteModel (string City, string Country);
 }

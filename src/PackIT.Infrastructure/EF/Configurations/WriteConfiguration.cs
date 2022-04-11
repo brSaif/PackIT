@@ -16,7 +16,7 @@ namespace PackIT.Infrastructure.EF.Configurations
     {
         public void Configure(EntityTypeBuilder<PackingItem> builder)
         {
-            builder.Property<Guid>("ID");
+            builder.Property<Guid>("Id");
             builder.Property(p => p.Name);
             builder.Property(p => p.Quantity);
             builder.Property(p => p.IsPacked);
